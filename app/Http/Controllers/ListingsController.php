@@ -11,7 +11,7 @@ class ListingsController extends Controller
     {
         return view('listings.index', [
             'heading' => "Latest Listings",
-            "Listings" => Listing::all(),
+            "Listings" => Listing::latest()->filter(request(['search']))->get()
         ]);
     }
     public function show($id)

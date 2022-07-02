@@ -44,7 +44,7 @@
                 </li>
             </ul>
             <div class="text-lg mt-4">
-                <i class="fa-solid fa-location-dot"></i> {{$Listing->company}},
+                <i class="fa-solid fa-location-dot"></i> {{$Listing->location}},
             </div>
         </div>
     </div>
