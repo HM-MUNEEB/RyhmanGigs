@@ -9,7 +9,7 @@ class ListingsController extends Controller
 {
     public function index()
     {
-        return view('Listings', [
+        return view('listings.index', [
             'heading' => "Latest Listings",
             "Listings" => Listing::all(),
         ]);
@@ -19,7 +19,7 @@ class ListingsController extends Controller
         $Listing = Listing::find($id);
 
         if ($Listing) {
-            return view('Listing', [
+            return view('listings.show', [
                 'Listing' => $Listing,
             ]);
         } else {
