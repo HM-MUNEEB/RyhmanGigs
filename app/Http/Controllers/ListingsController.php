@@ -67,13 +67,17 @@ class ListingsController extends Controller
         ]);
 
         $id->update($listingField);
-        return redirect("/");
+        return redirect("/listings/manage");
     }
 
     //Delete listing
     public function distroy(Listing $id)
     {
         $id->delete();
-        return redirect("/");
+        return redirect("/listings/manage");
+    }
+    public function manage()
+    {
+        return view('listings.manage', ['listings' => auth()->user()->listings()->get()]);
     }
 }

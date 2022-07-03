@@ -68,18 +68,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="mt-4 p-2 flex space-x-6">
-                        <a href="/listings/{{$Listing->id}}/edit">
-                        <i class="fa-solid fa-pancil"></i> edit
-                        </a>
-                        <form method="POST" action = "/listings/{{$Listing->id}}">
-                        @csrf
-                        @method("DELETE")
-                        <button class="text-red-500">
-                            DELETE
-                        </button>
-                        </form>
-                    </div>
                 </div>
             </div>
 
