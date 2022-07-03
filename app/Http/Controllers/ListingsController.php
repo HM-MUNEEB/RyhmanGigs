@@ -43,6 +43,8 @@ class ListingsController extends Controller
             'description' => 'required',
         ]);
 
+        $listingField['user_id'] = auth()->id();
+
         Listing::create($listingField);
         return redirect('/');
     }
