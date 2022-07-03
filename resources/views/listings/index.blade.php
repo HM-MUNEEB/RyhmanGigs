@@ -18,7 +18,7 @@
         />
         <div>
             <h3 class="text-2xl">
-                <a href="/Listing/{{$Listing->id}}">{{$Listing->title}}</a>
+                <a href="/listings/{{$Listing->id}}">{{$Listing->title}}</a>
             </h3>
             <div class="text-xl font-bold mb-4">{{$Listing->company}}</div>
             <ul class="flex">

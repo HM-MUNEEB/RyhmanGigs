@@ -46,4 +46,32 @@ class ListingsController extends Controller
         Listing::create($listingField);
         return redirect('/');
     }
+    //show edit form
+    public function edit(Listing $id)
+    {
+        return view("listings.edit", ['Listing' => $id]);
+    }
+    //Update Listing
+    public function update(Request $request, Listing $id)
+    {
+        $listingField = $request->validate([
+            'title' => 'required',
+            'company' => ['required'],
+            'email' => ['required', 'email'],
+            'location' => 'required',
+            'website' => 'required',
+            'tags' => 'required',
+            'description' => 'required',
+        ]);
+
+        $id->update($listingField);
+        return redirect("/");
+    }
+
+    //Delete listing
+    public function distroy(Listing $id)
+    {
+        $id->delete();
+        return redirect("/");
+    }
 }
