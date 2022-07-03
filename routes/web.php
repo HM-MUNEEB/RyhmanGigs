@@ -26,28 +26,28 @@ Route::get("/listings/create", [ListingsController::class, 'create'])->Middlewar
 Route::post("/listings", [ListingsController::class, 'store']);
 
 //edit listing
-Route::get("/listings/{id}/edit", [ListingsController::class, 'edit']);
+Route::get("/listings/{id}/edit", [ListingsController::class, 'edit'])->Middleware('auth');
 
 //Update Listing
-Route::put("/listings/{id}", [ListingsController::class, 'update']);
+Route::put("/listings/{id}", [ListingsController::class, 'update'])->Middleware('auth');
 
 //Delete Listing
-Route::delete("/listings/{id}", [ListingsController::class, 'distroy']);
+Route::delete("/listings/{id}", [ListingsController::class, 'distroy'])->Middleware('auth');
 
 //show each listing
 Route::get("/listings/{id}", [ListingsController::class, 'show']);
 
 //Show Register/Create Form 
-Route::get("/register", [UserController::class, 'create']);
+Route::get("/register", [UserController::class, 'create'])->Middleware('guest');
 
 //Create New User
 Route::post("/users", [UserController::class, 'store']);
 
 //Show Login
-Route::get("/login", [UserController::class, 'login'])->name("login");
+Route::get("/login", [UserController::class, 'login'])->name("login")->Middleware('guest');
 
 //Login existed User
 Route::get("/users/authenticate", [UserController::class, 'authenticate']);
 
 //Logout
-Route::post("/logout", [UserController::class, 'logout']);
+Route::post("/logout", [UserController::class, 'logout'])->Middleware('auth');
