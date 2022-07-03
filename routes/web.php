@@ -4,6 +4,7 @@ use App\Http\Controllers\ListingsController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Listing;
+use GuzzleHttp\Middleware;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,8 +19,8 @@ use App\Models\Listing;
 //show all listings
 Route::get('/', [ListingsController::class, 'index']);
 
-//show create view
-Route::get("/listings/create", [ListingsController::class, 'create']);
+//show create view & Middleware for protected route
+Route::get("/listings/create", [ListingsController::class, 'create'])->Middleware('auth');
 
 //store listing
 Route::post("/listings", [ListingsController::class, 'store']);
@@ -43,7 +44,7 @@ Route::get("/register", [UserController::class, 'create']);
 Route::post("/users", [UserController::class, 'store']);
 
 //Show Login
-Route::get("/login", [UserController::class, 'login']);
+Route::get("/login", [UserController::class, 'login'])->name("login");
 
 //Login existed User
 Route::get("/users/authenticate", [UserController::class, 'authenticate']);
