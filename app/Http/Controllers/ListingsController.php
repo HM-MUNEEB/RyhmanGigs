@@ -12,7 +12,7 @@ class ListingsController extends Controller
     {
         return view('listings.index', [
             'heading' => "Latest Listings",
-            "Listings" => Listing::latest()->filter(request(['search']))->get()
+            "Listings" => Listing::latest()->filter(request(['search']))->paginate(6)
         ]);
     }
     public function show($id)

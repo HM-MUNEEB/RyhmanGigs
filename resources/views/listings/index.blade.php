@@ -60,4 +60,8 @@
 
 </div>
 
+<div class="mt-6 p-4">
+    {{$Listings->links()}}
+</div>
+
 @endsection
